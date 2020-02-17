@@ -1,0 +1,26 @@
+Program Pembukuan sederhana ada Versi untuk Ms.Windows versi 32 bit nya(applikasinya: pasien.exe).
+Ada versi Linux nya (applikasinya: buku) versi 64 bit.
+Dibuat memakai IDE Free Pascal Lazarus di Peppermint 10( OS nya ).
+Program memakai database Sqlite3, jadi program memerlukan driver Sqlite3 untuk berjalan.
+Versi Ms.Windows 32 bit memerlukan sqlite3.dll
+Di taruh di Windows\system32 file sqlite3.dll nya.
+Untuk Linux 64 bit memerlukan libsqlite3.so 
+Di taruh di /usr/lib/x86_64-linux-gnu
+Selain file driver sqlite3, juga diperlukan logo.png untuk membuat 
+laporan keuangan. Laporan berbentuk file pdf.
+File logo.png ini dapat diganti dengan logo.png yang lain sesuai selera masing2.
+Jadi untuk windows_32 diperlukan:
+ - pasien.exe
+ - sqlite3.dll
+ - logo.png
+ada di direktori Pembukuan_Lazarus_Pascal/win_32
+
+Untuk linux_64 diperlukan:
+ - buku
+ -libsqlite3.so
+ - logo.png
+ada di direktori Pembukuan_Lazarus_Pascal/linux_64
+Bila ada erro sewaktu memilih tanggal( di Lihat transaksi atau Laporan ),
+coba diubah Locationnya ke Indonesia Zone dengan format tanggal yyyy-mm-dd
+
+ 
