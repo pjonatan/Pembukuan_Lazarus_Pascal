@@ -1,0 +1,90 @@
+object Form1: TForm1
+  Left = 346
+  Height = 341
+  Top = 123
+  Width = 320
+  Caption = 'Menu Pembukuan'
+  ClientHeight = 341
+  ClientWidth = 320
+  LCLVersion = '2.0.6.0'
+  object Panel1: TPanel
+    Left = 96
+    Height = 42
+    Top = 32
+    Width = 170
+    BorderWidth = 3
+    Caption = 'Transaksi'
+    Color = clNavy
+    Font.Height = -16
+    Font.Name = 'Sans'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+    OnClick = Panel1Click
+  end
+  object Panel3: TPanel
+    Left = 96
+    Height = 42
+    Top = 144
+    Width = 170
+    BorderWidth = 3
+    Caption = 'Item Masuk'
+    Color = clNavy
+    Font.Height = -16
+    Font.Name = 'Sans'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 1
+    OnClick = Panel3Click
+  end
+  object Panel4: TPanel
+    Left = 96
+    Height = 42
+    Top = 200
+    Width = 170
+    BorderWidth = 3
+    Caption = 'Item Keluar'
+    Color = clNavy
+    Font.Height = -16
+    Font.Name = 'Sans'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    OnClick = Panel4Click
+  end
+  object Panel5: TPanel
+    Left = 96
+    Height = 42
+    Top = 256
+    Width = 170
+    BorderWidth = 3
+    Caption = 'Laporan'
+    Color = clNavy
+    Font.Height = -16
+    Font.Name = 'Sans'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 3
+    OnClick = Panel5Click
+  end
+  object Panel2: TPanel
+    Left = 96
+    Height = 42
+    Top = 88
+    Width = 170
+    BorderWidth = 3
+    Caption = 'Lihat Transaksi'
+    Color = clNavy
+    Font.Height = -16
+    Font.Name = 'Sans'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 4
+    OnClick = Panel2Click
+  end
+end
