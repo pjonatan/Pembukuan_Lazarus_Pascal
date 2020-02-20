@@ -66,9 +66,14 @@ function rupiah(Rp: String):String;
     8:
       begin
         smt:=copy(Rp,1,2) + '.' + copy(Rp,3,3) + '.' + copy(Rp,6,3);
-        smt:='Rp.' + format('%14s',[smt]);
+        smt:='Rp.' + format('%17s',[smt]);
       end;
-   end;
+    9:
+      begin
+        smt:=copy(Rp,1,3) + '.' + copy(Rp,4,3) + '.' + copy(Rp,7,3);
+        smt:='Rp.' + format('%15s',[smt]);
+      end;
+  end;
    rupiah:=smt;
  end;
  //convert rupiah to number
@@ -84,6 +89,7 @@ function rupiah(Rp: String):String;
    lt:=length(Sel);
 
    se:= Copy(Sel,4,lt);
+   TrimLeft(se);
    p1:= Pos('.',se);
    smt:=Copy(se,(p1 + 1),lt);
    p2:= Pos('.',smt);
