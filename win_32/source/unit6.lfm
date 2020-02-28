@@ -27,14 +27,14 @@ object Form6: TForm6
   end
   object Bulan: TComboBox
     Left = 176
-    Height = 45
+    Height = 40
     Top = 16
     Width = 168
     Color = clHighlight
     Font.Height = -27
     Font.Name = 'Sans'
     Font.Style = [fsBold]
-    ItemHeight = 0
+    ItemHeight = 32
     ParentFont = False
     TabOrder = 1
     Text = 'Bulan'
@@ -349,16 +349,20 @@ object Form6: TForm6
   end
   object Tahun: TComboBox
     Left = 344
-    Height = 45
+    Height = 40
     Top = 19
     Width = 168
     Color = clHighlight
     Font.Height = -27
     Font.Name = 'Sans'
     Font.Style = [fsBold]
-    ItemHeight = 0
+    ItemHeight = 32
     ParentFont = False
     TabOrder = 4
     Text = 'Tahun'
+  end
+  object SaveDialog1: TSaveDialog
+    left = 1062
+    top = 31
   end
 end
