@@ -14,6 +14,7 @@ type
 
   TForm6 = class(TForm)
     Bulan: TComboBox;
+    SaveDialog1: TSaveDialog;
     Tahun: TComboBox;
     Image1: TImage;
     Image2: TImage;
@@ -141,6 +142,7 @@ begin
 
 procedure TForm6.Image2Click(Sender: TObject);
 var
+  filename: string;
   SCon : TSQLConnection;
   STran: TSQLTransaction;
   pQry : TSQLQuery;
@@ -155,6 +157,11 @@ var
    Total_Masuk: Integer;
    Total_Keluar: Integer;
 begin
+  if SaveDialog1.Execute then
+  begin
+    filename := SaveDialog1.Filename;
+    ShowMessage('Diexport ke : ' + filename + '.pdf');
+  end;
  Bl:=Form6.Bulan.Text;
  Th:=Form6.Tahun.Text;
  pdf:= TJPFpdf.Create(poPortrait,puMM,pfA4);
@@ -311,7 +318,7 @@ while not pQry.EOF do
  pdf.Cell(140,7,'Saldo akhir','1',0,'R',0);
  pdf.SetX(150);
  pdf.Cell(50,7,rupiah(IntToStr(Total_Masuk - Total_Keluar)),'1',0,'L',0);
- pdf.SaveToFile('/home/bt/Laporan_' + Bl + '_' + Th + '.pdf');
+ pdf.SaveToFile(filename + '.pdf');
  pdf.Free;
  ShowMessage('Sudah selesai!');
  pQry.Close;

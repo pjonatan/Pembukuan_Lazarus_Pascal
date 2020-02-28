@@ -176,7 +176,7 @@ object Form6: TForm6
     }
   end
   object SG: TStringGrid
-    Left = 5
+    Left = 8
     Height = 500
     Top = 80
     Width = 1307
@@ -360,5 +360,9 @@ object Form6: TForm6
     ParentFont = False
     TabOrder = 4
     Text = 'Tahun'
+  end
+  object SaveDialog1: TSaveDialog
+    left = 1072
+    top = 16
   end
 end
