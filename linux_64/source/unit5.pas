@@ -22,7 +22,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
-    procedure Simpan(sender: TObject; aCol, aRow: Integer);
+    procedure Simpan(sender: TObject; aCol, aRow: Integer;
+       const OldValue: string; var NewValue: String);
   private
 
   public
@@ -122,7 +123,8 @@ begin
       ShowMessage('Ada yang belum diisi atau dipilih!');
    end;
 end;
-procedure TForm5.Simpan(sender: TObject; aCol, aRow: Integer);
+procedure TForm5.Simpan(sender: TObject; aCol, aRow: Integer;
+    const OldValue: string; var NewValue: String);
 var
   SCon : TSQLConnection;
   STran: TSQLTransaction;

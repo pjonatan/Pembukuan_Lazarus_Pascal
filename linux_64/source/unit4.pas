@@ -22,7 +22,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
-    procedure Simpan(Sender: TObject; aCol, aRow: Integer);
+    procedure Simpan(Sender: TObject; aCol, aRow: Integer;
+       const OldValue: string; var NewValue: String);
   private
 
   public
@@ -122,7 +123,8 @@ begin
    end;
 end;
 
-  procedure TForm4.Simpan(Sender: TObject; aCol, aRow: Integer);
+  procedure TForm4.Simpan(Sender: TObject; aCol, aRow: Integer;
+      const OldValue: string; var NewValue: String);
   var
     SCon : TSQLConnection;
     STran: TSQLTransaction;

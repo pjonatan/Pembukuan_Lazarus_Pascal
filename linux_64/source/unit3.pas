@@ -25,8 +25,8 @@ type
     SG: TStringGrid;
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
-    procedure Ubah(sender: TObject; aCol, aRow: Integer);
-
+    procedure Ubah(sender: TObject; aCol, aRow: Integer;
+        const OldValue: string; var NewValue: String);
   private
 
   public
@@ -114,8 +114,8 @@ var
   Tanggal2: String;
 
 begin
-Tanggal1:= Form3.Tg1.Text + '-' + Form3.Bl1.Text + '-' + Form3.Th1.Text;
-Tanggal2:= Form3.Tg2.Text + '-' + Form3.Bl2.Text + '-' + Form3.Th2.Text;
+Tanggal1:= Form3.Th1.Text + '-' + Form3.Bl1.Text + '-' + Form3.Tg1.Text;
+Tanggal2:= Form3.Th2.Text + '-' + Form3.Bl2.Text + '-' + Form3.Tg2.Text;
 try
   SCon  := TSQLite3Connection.Create(nil);
   STran := TSQLTransaction.Create(SCon);
@@ -143,10 +143,11 @@ try
   STran.Free;
   SCon.Free;
  except
-   ShowMessage('Tanggal belum dipilih!');
+  ShowMessage('Tanggal belum dipilih!');
  end;
 end;
-procedure TForm3.Ubah(sender: TObject; aCol, aRow: Integer);
+procedure TForm3.Ubah(sender: TObject; aCol, aRow: Integer;
+     const OldValue: string; var NewValue: String);
 var
   SCon : TSQLConnection;
   STran: TSQLTransaction;

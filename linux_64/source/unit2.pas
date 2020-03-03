@@ -44,8 +44,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure Kode_KClick(Sender: TObject);
     procedure Kode_MClick(Sender: TObject);
-    procedure Ubah(Sender: TObject; aCol, aRow: Integer);
-
+    procedure Ubah(Sender: TObject; aCol, aRow: Integer;
+                const OldValue: string; var NewValue: String);
   private
 
   public
@@ -64,7 +64,7 @@ implementation
 
 { TForm2 }
 
-procedure Create_Header;   //Header SG Tstringgrid
+procedure Create_Header;
 begin
    Form2.SG.Cells[0,0] := 'TID';
    Form2.SG.Cells[1,0] := 'Tanggal';
@@ -76,7 +76,7 @@ begin
    Form2.SG.Cells[7,0] := 'Jm_Keluar';
    Form2.SG.Cells[8,0] := 'Saldo';
 end;
-procedure Create_Cells(Ind: Integer; Qry: TSQLQuery);  //Tstringgrid cell
+procedure Create_Cells(Ind: Integer; Qry: TSQLQuery);
 begin
 Form2.SG.Cells[0,Ind] := Qry.FieldByName('t_id').AsString;
 Form2.SG.Cells[1,Ind] := DateToStr(Qry.FieldByName('tanggal').AsDateTime);
@@ -111,7 +111,7 @@ var
 
 begin
   cek:=0;
-  SG.Options:= SG.Options + [goEditing];           //for Tstringgrid editable
+  SG.Options:= SG.Options + [goEditing];
   Form2.Edit1.Text:=hari;
   SCon  := TSQLite3Connection.Create(nil);
   STran := TSQLTransaction.Create(SCon);
@@ -138,7 +138,7 @@ begin
   pQry.SQL.Text := 'select * from masuk';
   pQry.DataBase:= Scon;
   pQry.Open;
-  while not pQry.EOF do                          //populate Combo
+  while not pQry.EOF do
   begin
     Isi:= pQry.FieldByName('m_kode').AsString +
             pQry.FieldByName('m_nama').AsString;
@@ -149,7 +149,7 @@ begin
   pQry.SQL.Text := 'select * from keluar';
   pQry.DataBase:= Scon;
   pQry.Open;
-  while not pQry.EOF do                        //populate combo
+  while not pQry.EOF do
   begin
     Isi:= pQry.FieldByName('k_kode').AsString +
             pQry.FieldByName('k_nama').AsString;
@@ -389,7 +389,8 @@ begin
   STran.Free;
   SCon.Free;
 end;
-procedure TForm2.Ubah(sender: TObject; aCol, aRow: Integer);
+procedure TForm2.Ubah(sender: TObject; aCol, aRow: Integer;
+              const OldValue: string; var NewValue: String);
 var
   SCon : TSQLConnection;
   STran: TSQLTransaction;
